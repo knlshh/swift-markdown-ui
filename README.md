@@ -5,6 +5,15 @@
 
 Display and customize Markdown text in SwiftUI.
 
+* [Overview](#overview)
+* [Minimum requirements](#minimum-requirements)
+* [Getting started](#getting-started)
+  * [Creating a Markdown view](#creating-a-markdown-view)
+  * [Styling Markdown](#styling-markdown)
+* [Documentation](#documentation)
+* [Demo](#demo)
+* [Installation](#installation)
+
 ## Overview
 
 MarkdownUI is a powerful library for displaying and customizing Markdown text in SwiftUI. It is
@@ -20,7 +29,7 @@ You can use the built-in themes, create your own or override specific text and b
 
 ## Minimum requirements
 
-You can use MarkdownUI 2 on the following platforms:
+You can use MarkdownUI on the following platforms:
 
 - macOS 12.0+
 - iOS 15.0+
@@ -217,17 +226,26 @@ extension Theme {
       ForegroundColor(.purple)
     }
     // More text styles...
-    .paragraph { label in
-      label
+    .paragraph { configuration in
+      configuration.label
         .relativeLineSpacing(.em(0.25))
         .markdownMargin(top: 0, bottom: 16)
     }
-    .listItem { label in
-      label.markdownMargin(top: .em(0.25))
+    .listItem { configuration in
+      configuration.label
+        .markdownMargin(top: .em(0.25))
     }
     // More block styles...
 }
 ```
+
+## Documentation
+
+[Swift Package Index](https://swiftpackageindex.com) kindly hosts the online documentation for all versions, available here:
+
+- [main](https://swiftpackageindex.com/gonzalezreal/swift-markdown-ui/main/documentation/markdownui)
+- [2.1.0](https://swiftpackageindex.com/gonzalezreal/swift-markdown-ui/2.1.0/documentation/markdownui)
+- [2.0.2](https://swiftpackageindex.com/gonzalezreal/swift-markdown-ui/2.0.2/documentation/markdownui)
 
 ## Demo
 
@@ -243,7 +261,7 @@ MarkdownUI comes with a few more tricks on the sleeve. You can explore the
 To use MarkdownUI in a Swift Package Manager project, add the following line to the dependencies in your `Package.swift` file:
 
 ```swift
-.package(url: "https://github.com/gonzalezreal/swift-markdown-ui", from: "2.0.0")
+.package(url: "https://github.com/gonzalezreal/swift-markdown-ui", from: "2.0.2")
 ```
 
 Include `"MarkdownUI"` as a dependency for your executable target:

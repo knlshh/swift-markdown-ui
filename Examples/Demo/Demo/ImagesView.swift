@@ -15,36 +15,41 @@ struct ImagesView: View {
     ― Photo by Jennifer Trovato
     """
 
-  private let assetContent = """
-    You can configure a `Markdown` view to load images from the asset catalog.
+  private let inlineImageContent = """
+    You can also insert images in a line of text, such as
+    ![](https://picsum.photos/id/237/50/25) or
+    ![](https://picsum.photos/id/433/50/25).
 
-    ```swift
-    Markdown {
-      "![This is an image](237-200x300)"
-    }
-    .markdownImageProvider(.asset)
+    ```
+    You can also insert images in a line of text, such as
+    ![](https://picsum.photos/id/237/50/25) or
+    ![](https://picsum.photos/id/433/50/25).
     ```
 
-    ![This is an image](dog)
+    Note that MarkdownUI **cannot** apply any styling to
+    inline images.
 
-    ― Photo by André Spieker
+    ― Photos by André Spieker and Thomas Lefebvre
     """
 
   var body: some View {
     DemoView {
       Markdown(self.content)
 
+      Section("Inline images") {
+        Markdown(self.inlineImageContent)
+      }
+
       Section("Customization Example") {
         Markdown(self.content)
       }
-      .markdownBlockStyle(\.image) { label in
-        label
+      .markdownBlockStyle(\.image) { configuration in
+        configuration.label
           .clipShape(RoundedRectangle(cornerRadius: 8))
           .shadow(radius: 8, y: 8)
           .markdownMargin(top: .em(1.6), bottom: .em(1.6))
       }
     }
-    .navigationTitle("Images")
   }
 }
 

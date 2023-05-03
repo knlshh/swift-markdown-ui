@@ -18,8 +18,8 @@ struct QuotesView: View {
       Section("Customization Example") {
         Markdown(self.content)
       }
-      .markdownBlockStyle(\.blockquote) { label in
-        label
+      .markdownBlockStyle(\.blockquote) { configuration in
+        configuration.label
           .padding()
           .markdownTextStyle {
             FontCapsVariant(.lowercaseSmallCaps)
@@ -34,7 +34,6 @@ struct QuotesView: View {
           .background(Color.teal.opacity(0.5))
       }
     }
-    .navigationTitle("Quotes")
   }
 }
 
