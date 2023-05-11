@@ -20,10 +20,10 @@ let package = Package(
     .package(url: "https://github.com/pointfreeco/swift-snapshot-testing", from: "1.10.0")
   ],
   targets: [
-    .target(name: "cmark-gfm"),
+    .target(name: "cmark-gfm-markdown-ui"),
     .target(
       name: "MarkdownUI",
-      dependencies: ["cmark-gfm"]
+      dependencies: ["cmark-gfm-markdown-ui"]
     ),
     .testTarget(
       name: "MarkdownUITests",
